@@ -1,0 +1,43 @@
+name: "Test"
+
+on:
+  workflow_dispatch:
+  #schedule:
+  #  - cron: "18 18 * * 1,3,5"
+  push:
+    branches: ["**"]
+    paths:
+      - "dist/**"
+      - "src/**"
+      - ".github/workflows/test.yaml"
+      - "package*.json"
+      - "requirements*.txt"
+      - "action.yml"
+
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v5
+
+      - name: "Test Local Action"
+        id: test
+        uses: ./
+        with:
+          host: ${{ secrets.DOCKER_HOST }}
+          port: ${{ secrets.DOCKER_PORT }}
+          user: ${{ secrets.DOCKER_USER }}
+          pass: ${{ secrets.DOCKER_PASS }}
+          #ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
+
+      #- name: "Schedule Failure Notification"
+      #  if: ${{ failure() && github.event_name == 'schedule' }}
+      #  uses: sarisia/actions-status-discord@v1
+      #  with:
+      #    webhook: ${{ secrets.DISCORD_WEBHOOK }}
