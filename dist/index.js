@@ -31854,14 +31854,17 @@ const github = __nccwpck_require__(3228)
         console.log('stage:', stage)
 
         if (stage === 'main') {
-            console.log('Running step: src/ssh.sh')
-
+            console.log('▶️ Running step: src/ssh.sh')
             const ssh = await exec.getExecOutput('bash src/ssh.sh')
-            console.log('ssh.stdout:', ssh.stdout)
-            console.log('ssh.stdout:', ssh.stderr)
+            console.log('ssh.exitCode:', ssh.exitCode)
+            // console.log('ssh.stdout:', ssh.stdout)
+            // console.log('ssh.stdout:', ssh.stderr)
+
+            console.log('▶️ Running step: src/context.sh')
             const context = await exec.getExecOutput('bash src/context.sh')
-            console.log('context.stdout:', context.stdout)
-            console.log('context.stdout:', context.stderr)
+            console.log('context.exitCode:', context.exitCode)
+            // console.log('context.stdout:', context.stdout)
+            // console.log('context.stdout:', context.stderr)
 
             // await exec.exec('bash src/context.sh')
             // const [output, error] = await checkOutput('bash src/ssh.sh')
@@ -31879,13 +31882,16 @@ const github = __nccwpck_require__(3228)
             // console.log('----------------------------------------')
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
-            console.log('Running step: src/cleanup.sh')
-            const [output, error] = await checkOutput('bash src/cleanup.sh')
-            console.log('----------------------------------------')
-            console.log('output:', output)
-            console.log('----------------------------------------')
-            console.log('error:', error)
-            console.log('----------------------------------------')
+            console.log('▶️ Running step: src/cleanup.sh')
+            const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
+            console.log('cleanup.exitCode:', cleanup.exitCode)
+
+            // const [output, error] = await checkOutput('bash src/cleanup.sh')
+            // console.log('----------------------------------------')
+            // console.log('output:', output)
+            // console.log('----------------------------------------')
+            // console.log('error:', error)
+            // console.log('----------------------------------------')
         }
     } catch (e) {
         core.debug(e)
