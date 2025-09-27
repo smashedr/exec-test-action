@@ -2,6 +2,10 @@ name: "Test Exec Action"
 description: "Set up a Remote Docker Context over SSH using Password or Keyfile Authentication"
 
 inputs:
+  testing:
+    description: "Testing Input"
+    required: true
+    default: "HELLO WORLD"
   host:
     description: "Docker Host"
     required: true

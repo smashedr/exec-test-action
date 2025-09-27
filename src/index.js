@@ -1,15 +1,33 @@
 const core = require('@actions/core')
 const exec = require('@actions/exec')
-// const github = require('@actions/github')
+const github = require('@actions/github')
 
 ;(async () => {
     try {
         core.info(`🏳️ Starting Test Exec Action`)
-        // const ls = await checkOutput('bash src/ssh.sh')
-        // console.log('ls:', ls)
+
+        // Debug
+        core.startGroup('Debug: github.context')
+        console.log(github.context)
+        core.endGroup() // Debug github.context
+        core.startGroup('Debug: process.env')
+        console.log(process.env)
+        core.endGroup() // Debug process.env
 
         const stage = core.getState('STAGE') || 'main'
         console.log('stage:', stage)
+
+        console.log(
+            `testing: getInput: ${core.getInput('testing')} / env: ${process.env.INPUT_TESTING}`
+        )
+
+        console.log(
+            `host: getInput: ${core.getInput('host')} / env: ${process.env.INPUT_HOST}`
+        )
+
+        console.log(
+            `port: getInput: ${core.getInput('port')} / env: ${process.env.INPUT_PORT}`
+        )
 
         console.log('host')
         console.log('core.getInput', core.getInput('host'))
