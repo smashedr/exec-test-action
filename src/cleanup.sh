@@ -9,6 +9,9 @@ echo "Docker Context - ${GITHUB_ACTION_REF} - Cleanup SSH"
 
 echo "STATE_SSH_CLEANUP: ${STATE_SSH_CLEANUP}"
 
+echo "HARD CODED exit 0"
+exit 0
+
 if [[ -n "${STATE_SSH_CLEANUP}" ]];then
     echo "🧹 Cleaning Up authorized_keys"
     ssh -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=30 -p "${INPUT_PORT}" "${INPUT_USER}@${INPUT_HOST}" \

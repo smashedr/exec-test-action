@@ -29,7 +29,8 @@ if [[ -z "${INPUT_SSH_KEY}" ]];then
     ssh-keygen -q -f "${SSH_DIR}/id_rsa" -N "" -C "docker-stack-deploy-action"
     eval "$(ssh-agent -s)"
     ssh-add "${SSH_DIR}/id_rsa"
-    sshpass -eINPUT_PASS \
+    export SSHPASS="${INPUT_PASS}"
+    sshpass -e \
         ssh-copy-id -i "${SSH_DIR}/id_rsa" -o ConnectTimeout=30 \
             -p "${INPUT_PORT}" "${INPUT_USER}@${INPUT_HOST}"
     echo "STATE_SSH_CLEANUP=true" >> "${GITHUB_ENV}"
