@@ -31854,24 +31854,14 @@ const github = __nccwpck_require__(3228)
         console.log('stage:', stage)
 
         console.log(
-            `testing: getInput: ${core.getInput('testing')} / env: ${process.env.INPUT_TESTING}`
+            `testing: getInput: ${core.getInput('testing')} - env: ${process.env.INPUT_TESTING}`
         )
-
         console.log(
-            `host: getInput: ${core.getInput('host')} / env: ${process.env.INPUT_HOST}`
+            `host: getInput: ${core.getInput('host')} - env: ${process.env.INPUT_HOST}`
         )
-
         console.log(
-            `port: getInput: ${core.getInput('port')} / env: ${process.env.INPUT_PORT}`
+            `port: getInput: ${core.getInput('port')} - env: ${process.env.INPUT_PORT}`
         )
-
-        console.log('host')
-        console.log('core.getInput', core.getInput('host'))
-        console.log('process.env:', process.env.INPUT_HOST)
-
-        console.log('port')
-        console.log('core.getInput', core.getInput('port'))
-        console.log('process.env:', process.env.INPUT_PORT)
 
         if (stage === 'main') {
             console.log('Running step: src/ssh.sh')
