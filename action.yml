@@ -7,16 +7,15 @@ inputs:
     required: true
   port:
     description: "Docker Port"
+    required: true
     default: "22"
   user:
     description: "Docker User"
     required: true
-
   pass:
     description: "SSH Password"
   ssh_key:
     description: "SSH Key File"
-
   registry_user:
     description: "Registry Auth Username"
   registry_pass:

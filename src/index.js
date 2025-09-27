@@ -11,8 +11,13 @@ const exec = require('@actions/exec')
         const stage = core.getState('STAGE') || 'main'
         console.log('stage:', stage)
 
-        console.log('core.getInput("port"):', core.getInput('port'))
-        console.log('process.env.INPUT_PORT:', process.env.INPUT_PORT)
+        console.log('host')
+        console.log('core.getInput', core.getInput('host'))
+        console.log('process.env:', process.env.INPUT_HOST)
+
+        console.log('port')
+        console.log('core.getInput', core.getInput('port'))
+        console.log('process.env:', process.env.INPUT_PORT)
 
         if (stage === 'main') {
             console.log('Running step: src/ssh.sh')
