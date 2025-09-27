@@ -17,6 +17,7 @@ echo "SSH Directory: ${SSH_DIR}"
 
 echo "INPUT_HOST: ${INPUT_HOST}"
 echo "INPUT_PORT: ${INPUT_PORT}"
+echo "INPUT_PASS: ${INPUT_PASS}"
 
 mkdir -p "${SSH_DIR}" ~/.ssh
 chmod 0700 "${SSH_DIR}" ~/.ssh
