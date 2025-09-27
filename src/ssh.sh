@@ -7,7 +7,7 @@ set -e
 
 echo "Docker Context - ${GITHUB_ACTION_REF} - Setup SSH"
 
-SSH_DIR="/root/.ssh"
+SSH_DIR="${HOME}/.ssh"
 
 echo "User: $(whoami)"
 echo "Script: ${0}"

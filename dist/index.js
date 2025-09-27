@@ -27568,6 +27568,9 @@ const exec = __nccwpck_require__(5236)
         const stage = core.getState('STAGE') || 'main'
         console.log('stage:', stage)
 
+        console.log('core.getInput("port"):', core.getInput('port'))
+        console.log('process.env.INPUT_PORT:', process.env.INPUT_PORT)
+
         if (stage === 'main') {
             console.log('Running step: src/ssh.sh')
             const [output, error] = await checkOutput('bash src/ssh.sh')
