@@ -30,20 +30,12 @@ jobs:
       #  run: |
       #    cat "${GITHUB_EVENT_PATH}"
 
-      - name: "1: Write YAML"
-        if: ${{ !cancelled() }}
-        uses: teunmooij/yaml@v1
-        with:
-          to-file: "docker-compose.yaml"
-          data: |
-            {"version":"3.8","services":{"alpine":{"image":"alpine:latest","command":"tail -f /dev/null"}}}
-
       - name: "1: PRE STEP"
         continue-on-error: true
         run: |
           docker context ls
 
-      - name: "1: Test Action"
+      - name: "1: Test Context"
         if: ${{ !cancelled() }}
         uses: ./
         with:
@@ -54,8 +46,19 @@ jobs:
           ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
 
       - name: "1: POST STEP"
-        continue-on-error: true
         run: |
           docker context ls
           #docker context inspect
           #docker ps -f name=test_stack-deploy
+
+      - name: "1: Write YAML"
+        if: ${{ !cancelled() }}
+        uses: teunmooij/yaml@v1
+        with:
+          to-file: "docker-compose.yaml"
+          data: |
+            {"version":"3.8","services":{"alpine":{"image":"alpine:latest","command":"tail -f /dev/null"}}}
+
+      - name: "1: Deploy Stack"
+        run: |
+          docker stack deploy -c docker-compose.yaml test_stack-context
