@@ -27,8 +27,8 @@
 - [Support](#Support)
 - [Contributing](#Contributing)
 
-Set up a Remote Docker Context over SSH using Password or Keyfile Authentication.
-Allowing all subsequent `docker` commands to run on the remote host.
+Set up a Remote Docker Context over SSH using Password or Keyfile Authentication.  
+This allows all subsequent `docker` commands to run on the remote host ([context](https://docs.docker.com/engine/manage-resources/contexts/)).
 
 ```yaml
 steps:
