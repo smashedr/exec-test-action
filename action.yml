@@ -5,13 +5,13 @@ inputs:
   host:
     description: "Docker Host"
     required: true
+  user:
+    description: "Docker User"
+    required: true
   port:
     description: "Docker Port"
     required: true
     default: "22"
-  user:
-    description: "Docker User"
-    required: true
   pass:
     description: "SSH Password"
   ssh_key:
@@ -24,6 +24,6 @@ inputs:
     description: "Registry Auth Hostname"
 
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"
   post: "dist/index.js"
