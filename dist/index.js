@@ -31840,58 +31840,37 @@ const github = __nccwpck_require__(3228)
 
 ;(async () => {
     try {
-        core.info(`🏳️ Starting Test Exec Action`)
-
-        // Debug
-        core.startGroup('Debug: github.context')
-        console.log(github.context)
-        core.endGroup() // Debug github.context
-        core.startGroup('Debug: process.env')
-        console.log(process.env)
-        core.endGroup() // Debug process.env
-
         const stage = core.getState('STAGE') || 'main'
-        console.log('stage:', stage)
+        core.info(`🏳️ Starting Test Exec Action - Stage: ${stage}`)
+
+        // // Debug
+        // core.startGroup('Debug: github.context')
+        // console.log(github.context)
+        // core.endGroup() // Debug github.context
+        // core.startGroup('Debug: process.env')
+        // console.log(process.env)
+        // core.endGroup() // Debug process.env
 
         if (stage === 'main') {
-            console.log('▶️ Running step: src/ssh.sh')
-            const ssh = await exec.getExecOutput('bash src/ssh.sh')
-            console.log('ssh.exitCode:', ssh.exitCode)
-            // console.log('ssh.stdout:', ssh.stdout)
-            // console.log('ssh.stdout:', ssh.stderr)
+            if (core.getInput('pass') || core.getInput('ssh_key')) {
+                console.log('▶️ Running step: src/ssh.sh')
+                const ssh = await exec.getExecOutput('bash src/ssh.sh')
+                console.log('ssh.exitCode:', ssh.exitCode)
+            }
 
             console.log('▶️ Running step: src/context.sh')
             const context = await exec.getExecOutput('bash src/context.sh')
             console.log('context.exitCode:', context.exitCode)
-            // console.log('context.stdout:', context.stdout)
-            // console.log('context.stdout:', context.stderr)
 
-            // await exec.exec('bash src/context.sh')
-            // const [output, error] = await checkOutput('bash src/ssh.sh')
-            // console.log('----------------------------------------')
-            // console.log('output:', output)
-            // console.log('----------------------------------------')
-            // console.log('error:', error)
-            // console.log('----------------------------------------')
-            // console.log('Running step: src/context.sh')
-            // const [output2, error2] = await checkOutput('bash src/context.sh')
-            // console.log('----------------------------------------')
-            // console.log('output:', output2)
-            // console.log('----------------------------------------')
-            // console.log('error:', error2)
-            // console.log('----------------------------------------')
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
             console.log('▶️ Running step: src/cleanup.sh')
-            const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
-            console.log('cleanup.exitCode:', cleanup.exitCode)
-
-            // const [output, error] = await checkOutput('bash src/cleanup.sh')
-            // console.log('----------------------------------------')
-            // console.log('output:', output)
-            // console.log('----------------------------------------')
-            // console.log('error:', error)
-            // console.log('----------------------------------------')
+            const sshCleanup = core.getState('SSH_CLEANUP')
+            console.log('sshCleanup:', sshCleanup)
+            if (sshCleanup) {
+                const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
+                console.log('cleanup.exitCode:', cleanup.exitCode)
+            }
         }
     } catch (e) {
         core.debug(e)

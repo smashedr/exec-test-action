@@ -16,9 +16,11 @@ const github = require('@actions/github')
         // core.endGroup() // Debug process.env
 
         if (stage === 'main') {
-            console.log('▶️ Running step: src/ssh.sh')
-            const ssh = await exec.getExecOutput('bash src/ssh.sh')
-            console.log('ssh.exitCode:', ssh.exitCode)
+            if (core.getInput('pass') || core.getInput('ssh_key')) {
+                console.log('▶️ Running step: src/ssh.sh')
+                const ssh = await exec.getExecOutput('bash src/ssh.sh')
+                console.log('ssh.exitCode:', ssh.exitCode)
+            }
 
             console.log('▶️ Running step: src/context.sh')
             const context = await exec.getExecOutput('bash src/context.sh')
@@ -27,8 +29,12 @@ const github = require('@actions/github')
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
             console.log('▶️ Running step: src/cleanup.sh')
-            const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
-            console.log('cleanup.exitCode:', cleanup.exitCode)
+            const sshCleanup = core.getState('SSH_CLEANUP')
+            console.log('sshCleanup:', sshCleanup)
+            if (sshCleanup) {
+                const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
+                console.log('cleanup.exitCode:', cleanup.exitCode)
+            }
         }
     } catch (e) {
         core.debug(e)
