@@ -3,9 +3,7 @@
 
 set -e
 
-## Docker Login
-
-echo "Docker Context - ${GITHUB_ACTION_REF} - Docker Login"
+echo "Docker Login"
 
 if [[ -n "${INPUT_REGISTRY_USER}" && -n "${INPUT_REGISTRY_PASS}" ]];then
     echo -e "::group::Logging in to Registry: \u001b[36;1m${INPUT_REGISTRY_HOST:-Docker Hub}"

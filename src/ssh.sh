@@ -3,9 +3,7 @@
 
 set -e
 
-## Setup SSH
-
-echo "Docker Context - ${GITHUB_ACTION_REF} - Setup SSH"
+echo "Setup SSH"
 
 SSH_DIR="${HOME}/.ssh"
 

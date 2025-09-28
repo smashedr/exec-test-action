@@ -3,9 +3,7 @@
 
 set -e
 
-## Cleanup SSH
-
-echo "Docker Context - ${GITHUB_ACTION_REF} - Cleanup SSH"
+echo "Cleanup SSH"
 
 echo "STATE_SSH_CLEANUP: ${STATE_SSH_CLEANUP}"
 #if [[ -n "${STATE_SSH_CLEANUP}" ]];then
