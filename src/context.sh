@@ -3,9 +3,7 @@
 
 set -e
 
-## Setup Context
-
-echo "Docker Context - ${GITHUB_ACTION_REF} - Setup Context"
+echo "Setup Context"
 
 echo "::group::Verifying Docker Context"
 ssh -o BatchMode=yes -o ConnectTimeout=30 -p "${INPUT_PORT}" \
@@ -17,4 +15,4 @@ docker context use remote
 docker context ls
 echo "::endgroup::"
 
-echo -e "🐳 \u001b[32;1m Setup Context"
+echo -e "🐳 \u001b[32;1m Setup Context Complete"

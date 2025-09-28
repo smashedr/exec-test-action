@@ -19,7 +19,7 @@ jobs:
   test:
     name: "Test"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 3
 
     steps:
       - name: "Checkout"
@@ -30,6 +30,27 @@ jobs:
       #  run: |
       #    cat "${GITHUB_EVENT_PATH}"
 
+      - name: "1: PRE STEP"
+        continue-on-error: true
+        run: |
+          docker context ls
+
+      - name: "1: Test Context"
+        if: ${{ !cancelled() }}
+        uses: ./
+        with:
+          host: ${{ secrets.DOCKER_HOST }}
+          #port: ${{ secrets.DOCKER_PORT }}
+          user: ${{ secrets.DOCKER_USER }}
+          #pass: ${{ secrets.DOCKER_PASS }}
+          ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
+
+      - name: "1: POST STEP"
+        run: |
+          docker context ls
+          #docker context inspect
+          #docker ps -f name=test_stack-deploy
+
       - name: "1: Write YAML"
         if: ${{ !cancelled() }}
         uses: teunmooij/yaml@v1
@@ -38,23 +59,6 @@ jobs:
           data: |
             {"version":"3.8","services":{"alpine":{"image":"alpine:latest","command":"tail -f /dev/null"}}}
 
-      - name: "1: PRE STEP"
-        continue-on-error: true
+      - name: "1: Deploy Stack"
         run: |
-          docker context ls
-
-      - name: "1: Test Action"
-        if: ${{ !cancelled() }}
-        uses: ./
-        with:
-          host: ${{ secrets.DOCKER_HOST }}
-          port: ${{ secrets.DOCKER_PORT }}
-          user: ${{ secrets.DOCKER_USER }}
-          #pass: ${{ secrets.DOCKER_PASS }}
-          ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
-
-      - name: "1: POST STEP"
-        continue-on-error: true
-        run: |
-          docker context ls
-          #docker context inspect
+          docker stack deploy -c docker-compose.yaml test_stack-context

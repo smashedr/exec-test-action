@@ -23,26 +23,6 @@ inputs:
   registry_host:
     description: "Registry Auth Hostname"
 
-#runs:
-#  using: "composite"
-#  steps:
-#    - name: "Setup SSH"
-#      if: ${{ inputs.pass != '' || inputs.ssh_key != '' }}
-#      shell: bash
-#      run: source ${GITHUB_ACTION_PATH}/src/ssh.sh
-#    - name: "Docker Context"
-#      shell: bash
-#      run: source ${GITHUB_ACTION_PATH}/src/context.sh
-#    - name: "Docker Login"
-#      if: ${{ inputs.registry_user != '' }}
-#      shell: bash
-#      run: source ${GITHUB_ACTION_PATH}/src/login.sh
-#    # TODO: This is not possible in composite because there is no POST
-#    - name: "SSH Cleanup"
-#      if: ${{ env.STATE_SSH_CLEANUP != '' }}
-#      shell: bash
-#      run: source ${GITHUB_ACTION_PATH}/src/cleanup.sh
-
 runs:
   using: "node20"
   main: "dist/index.js"
