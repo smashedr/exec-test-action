@@ -27569,6 +27569,8 @@ const exec = __nccwpck_require__(5236)
                 console.log('▶️ Running step: src/ssh.sh')
                 const ssh = await exec.getExecOutput('bash src/ssh.sh')
                 console.log('ssh.exitCode:', ssh.exitCode)
+            } else {
+                core.info('No pass or ssh_key. Skipping Setup SSH...')
             }
 
             console.log('▶️ Running step: src/context.sh')
@@ -27583,6 +27585,8 @@ const exec = __nccwpck_require__(5236)
                 console.log('▶️ Running step: src/cleanup.sh')
                 const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
                 console.log('cleanup.exitCode:', cleanup.exitCode)
+            } else {
+                core.info('No cleanup required. Skipping Cleanup...')
             }
         }
     } catch (e) {
