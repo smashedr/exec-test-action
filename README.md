@@ -107,7 +107,8 @@ Only set these to run `docker login`. This can also be run manually in another s
 
 #### registry_host
 
-To run `docker login` on another registry. Example: `ghcr.io`.
+To run `docker login` on another registry. Requires both `registry_user/registry_pass`.  
+Example: `ghcr.io`.
 
 ## Examples
 

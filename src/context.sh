@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# https://github.com/cssnr/docker-context-action
+# https://github.com/cssnr/docker-ssh-context-action
 
 set -e
 
