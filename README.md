@@ -1,19 +1,19 @@
-[![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/docker-ssh-context-action?sort=semver&filter=!v*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-ssh-context-action/tags)
-[![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/docker-ssh-context-action?sort=semver&filter=!v*.*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-ssh-context-action/releases)
-[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/docker-ssh-context-action?logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-ssh-context-action/releases/latest)
-[![GitHub Dist Size](https://img.shields.io/github/size/cssnr/docker-ssh-context-action/dist%2Findex.js?logo=bookstack&logoColor=white&label=dist%20size)](https://github.com/cssnr/docker-ssh-context-action/blob/master/src)
-[![Workflow Release](https://img.shields.io/github/actions/workflow/status/cssnr/docker-ssh-context-action/release.yaml?logo=cachet&label=release)](https://github.com/cssnr/docker-ssh-context-action/actions/workflows/release.yaml)
-[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/docker-ssh-context-action/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/docker-ssh-context-action/actions/workflows/test.yaml)
-[![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/docker-ssh-context-action/lint.yaml?logo=cachet&label=lint)](https://github.com/cssnr/docker-ssh-context-action/actions/workflows/lint.yaml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_docker-ssh-context-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_docker-ssh-context-action)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/docker-ssh-context-action?logo=github&label=updated)](https://github.com/cssnr/docker-ssh-context-action/pulse)
-[![Codeberg Last Commit](https://img.shields.io/gitea/last-commit/cssnr/docker-ssh-context-action/master?gitea_url=https%3A%2F%2Fcodeberg.org%2F&logo=codeberg&logoColor=white&label=updated)](https://codeberg.org/cssnr/docker-ssh-context-action)
-[![GitHub Contributors](https://img.shields.io/github/contributors/cssnr/docker-ssh-context-action?logo=github)](https://github.com/cssnr/docker-ssh-context-action/graphs/contributors)
-[![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/docker-ssh-context-action?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/docker-ssh-context-action?tab=readme-ov-file#readme)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/docker-ssh-context-action?logo=sharp&logoColor=white)](https://github.com/cssnr/docker-ssh-context-action)
-[![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/docker-ssh-context-action?logo=github)](https://github.com/cssnr/docker-ssh-context-action/discussions)
-[![GitHub Forks](https://img.shields.io/github/forks/cssnr/docker-ssh-context-action?style=flat&logo=github)](https://github.com/cssnr/docker-ssh-context-action/forks)
-[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/docker-ssh-context-action?style=flat&logo=github)](https://github.com/cssnr/docker-ssh-context-action/stargazers)
+[![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/docker-context-action?sort=semver&filter=!v*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-context-action/tags)
+[![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/docker-context-action?sort=semver&filter=!v*.*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-context-action/releases)
+[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/docker-context-action?logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/docker-context-action/releases/latest)
+[![GitHub Dist Size](https://img.shields.io/github/size/cssnr/docker-context-action/dist%2Findex.js?logo=bookstack&logoColor=white&label=dist%20size)](https://github.com/cssnr/docker-context-action/blob/master/src)
+[![Workflow Release](https://img.shields.io/github/actions/workflow/status/cssnr/docker-context-action/release.yaml?logo=cachet&label=release)](https://github.com/cssnr/docker-context-action/actions/workflows/release.yaml)
+[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/docker-context-action/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/docker-context-action/actions/workflows/test.yaml)
+[![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/docker-context-action/lint.yaml?logo=cachet&label=lint)](https://github.com/cssnr/docker-context-action/actions/workflows/lint.yaml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_docker-context-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_docker-context-action)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/docker-context-action?logo=github&label=updated)](https://github.com/cssnr/docker-context-action/pulse)
+[![Codeberg Last Commit](https://img.shields.io/gitea/last-commit/cssnr/docker-context-action/master?gitea_url=https%3A%2F%2Fcodeberg.org%2F&logo=codeberg&logoColor=white&label=updated)](https://codeberg.org/cssnr/docker-context-action)
+[![GitHub Contributors](https://img.shields.io/github/contributors/cssnr/docker-context-action?logo=github)](https://github.com/cssnr/docker-context-action/graphs/contributors)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/docker-context-action?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/docker-context-action?tab=readme-ov-file#readme)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/docker-context-action?logo=sharp&logoColor=white)](https://github.com/cssnr/docker-context-action)
+[![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/docker-context-action?logo=github)](https://github.com/cssnr/docker-context-action/discussions)
+[![GitHub Forks](https://img.shields.io/github/forks/cssnr/docker-context-action?style=flat&logo=github)](https://github.com/cssnr/docker-context-action/forks)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/docker-context-action?style=flat&logo=github)](https://github.com/cssnr/docker-context-action/stargazers)
 [![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&label=org%20stars)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
@@ -28,28 +28,30 @@
 - [Contributing](#Contributing)
 
 Set up a Remote Docker Context over SSH using Password or Keyfile Authentication.
+Allowing all subsequent `docker` commands to run on the remote host.
 
 ```yaml
 steps:
   - name: 'Docker Context'
-    uses: cssnr/docker-ssh-context-action@v1
+    uses: cssnr/docker-context-action@v1
     with:
       host: ${{ secrets.DOCKER_HOST }}
       user: ${{ secrets.DOCKER_USER }}
-      port: 22 # 22 is the default value
-      pass: ${{ secrets.DOCKER_PASS }} # or ssh_key
-      ssh_key: ${{ secrets.DOCKER_SSH_KEY }} # or pass
+      port: 22 # 22 is the default value - optional
+      pass: ${{ secrets.DOCKER_PASS }} # or ssh_key - optional
+      ssh_key: ${{ secrets.DOCKER_SSH_KEY }} # or pass - optional
 
   - name: 'Inspect Docker'
     runs: |
       docker context ls
       docker context inspect
       docker info
+      docker ps
 ```
 
 **Make sure to review the [Inputs](#inputs).**
 
-_Stack Deploy Action: If you only need to deploy a stack use: [cssnr/portainer-stack-deploy-action](https://github.com/cssnr/portainer-stack-deploy-action)_
+_Stack Deploy: If you only need to deploy a swarm or compose stack use: [cssnr/stack-deploy-action](https://github.com/cssnr/stack-deploy-action)_
 
 _Portainer Users: You can deploy directly to Portainer with: [cssnr/portainer-stack-deploy-action](https://github.com/cssnr/portainer-stack-deploy-action)_
 
@@ -60,7 +62,7 @@ _Portainer Users: You can deploy directly to Portainer with: [cssnr/portainer-st
 - Option to run Docker login for any registry, [src/login.sh](src/login.sh)
 - Cleans up the authorized_keys file if using password, [src/cleanup.sh](src/cleanup.sh)
 
-Don't see your feature here? Please help by submitting a [Feature Request](https://github.com/cssnr/docker-ssh-context-action/discussions/categories/feature-requests).
+Don't see your feature here? Please help by submitting a [Feature Request](https://github.com/cssnr/docker-context-action/discussions/categories/feature-requests).
 
 ## Inputs
 
@@ -79,7 +81,7 @@ With all inputs (not all required).
 
 ```yaml
 - name: 'Docker Context'
-  uses: cssnr/docker-ssh-context-action@v1
+  uses: cssnr/docker-context-action@v1
   with:
     host: ${{ secrets.DOCKER_HOST }}
     user: ${{ secrets.DOCKER_USER }}
@@ -117,7 +119,7 @@ Example workflow.
 ```yaml
 steps:
   - name: 'Docker Context'
-    uses: cssnr/docker-ssh-context-action@v1
+    uses: cssnr/docker-context-action@v1
     with:
       host: ${{ secrets.DOCKER_HOST }}
       user: ${{ secrets.DOCKER_USER }}
@@ -129,15 +131,15 @@ steps:
 
 ## Tags
 
-The following rolling [tags](https://github.com/cssnr/docker-ssh-context-action/tags) are maintained.
+The following rolling [tags](https://github.com/cssnr/docker-context-action/tags) are maintained.
 
-| Version&nbsp;Tag                                                                                                                                                                                                                   | Rolling | Bugs | Feat. |   Name    |  Target  | Example  |
-| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :--: | :---: | :-------: | :------: | :------- |
-| [![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/docker-ssh-context-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=44cc10)](https://github.com/cssnr/docker-ssh-context-action/releases/latest) |   ✅    |  ✅  |  ✅   | **Major** | `vN.x.x` | `vN`     |
-| [![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/docker-ssh-context-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=blue)](https://github.com/cssnr/docker-ssh-context-action/releases/latest) |   ✅    |  ✅  |  ❌   | **Minor** | `vN.N.x` | `vN.N`   |
-| [![GitHub Release](https://img.shields.io/github/v/release/cssnr/docker-ssh-context-action?style=for-the-badge&label=%20&color=red)](https://github.com/cssnr/docker-ssh-context-action/releases/latest)                           |   ❌    |  ❌  |  ❌   | **Micro** | `vN.N.N` | `vN.N.N` |
+| Version&nbsp;Tag                                                                                                                                                                                                           | Rolling | Bugs | Feat. |   Name    |  Target  | Example  |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :--: | :---: | :-------: | :------: | :------- |
+| [![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/docker-context-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=44cc10)](https://github.com/cssnr/docker-context-action/releases/latest) |   ✅    |  ✅  |  ✅   | **Major** | `vN.x.x` | `vN`     |
+| [![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/docker-context-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=blue)](https://github.com/cssnr/docker-context-action/releases/latest) |   ✅    |  ✅  |  ❌   | **Minor** | `vN.N.x` | `vN.N`   |
+| [![GitHub Release](https://img.shields.io/github/v/release/cssnr/docker-context-action?style=for-the-badge&label=%20&color=red)](https://github.com/cssnr/docker-context-action/releases/latest)                           |   ❌    |  ❌  |  ❌   | **Micro** | `vN.N.N` | `vN.N.N` |
 
-You can view the release notes for each version on the [releases](https://github.com/cssnr/docker-ssh-context-action/releases) page.
+You can view the release notes for each version on the [releases](https://github.com/cssnr/docker-context-action/releases) page.
 
 The **Major** tag is recommended. It is the most up-to-date and always backwards compatible.
 Breaking changes would result in a **Major** version bump. At a minimum you should use a **Minor** tag.
@@ -146,12 +148,12 @@ Breaking changes would result in a **Major** version bump. At a minimum you shou
 
 For general help or to request a feature, see:
 
-- Q&A Discussion: https://github.com/cssnr/docker-ssh-context-action/discussions/categories/q-a
-- Request a Feature: https://github.com/cssnr/docker-ssh-context-action/discussions/categories/feature-requests
+- Q&A Discussion: https://github.com/cssnr/docker-context-action/discussions/categories/q-a
+- Request a Feature: https://github.com/cssnr/docker-context-action/discussions/categories/feature-requests
 
 If you are experiencing an issue/bug or getting unexpected results, you can:
 
-- Report an Issue: https://github.com/cssnr/docker-ssh-context-action/issues
+- Report an Issue: https://github.com/cssnr/docker-context-action/issues
 - Chat with us on Discord: https://discord.gg/wXy6m2X8wY
 - Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=Update%20Release%20Notes)
 

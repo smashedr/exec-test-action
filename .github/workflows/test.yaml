@@ -25,17 +25,18 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v5
 
-      #- name: "Debug event.json"
-      #  continue-on-error: true
-      #  run: |
-      #    cat "${GITHUB_EVENT_PATH}"
+      - name: "Debug event.json"
+        if: ${{ !github.event.act }}
+        continue-on-error: true
+        run: |
+          cat "${GITHUB_EVENT_PATH}"
 
-      - name: "1: PRE STEP"
+      - name: "1: Step Before"
         continue-on-error: true
         run: |
           docker context ls
 
-      - name: "1: Test Context"
+      - name: "1: Docker Context"
         if: ${{ !cancelled() }}
         uses: ./
         with:
@@ -45,11 +46,12 @@ jobs:
           #pass: ${{ secrets.DOCKER_PASS }}
           ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
 
-      - name: "1: POST STEP"
+      - name: "1: Step After"
         run: |
           docker context ls
           #docker context inspect
-          #docker ps -f name=test_stack-deploy
+          #docker ps -f name=test_stack-context
+          #docker info
 
       - name: "1: Write YAML"
         if: ${{ !cancelled() }}
@@ -61,4 +63,4 @@ jobs:
 
       - name: "1: Deploy Stack"
         run: |
-          docker stack deploy -c docker-compose.yaml test_stack-context
+          docker stack deploy -c docker-compose.yaml --detach=false test_stack-context

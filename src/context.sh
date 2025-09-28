@@ -7,7 +7,7 @@ echo "Setup Context"
 
 echo "::group::Verifying Docker Context"
 
-CONTEXT_NAME="$(openssl rand -hex 6)"
+CONTEXT_NAME="$(openssl rand -hex 4)"
 
 ssh -o BatchMode=yes -o ConnectTimeout=30 -p "${INPUT_PORT}" \
     "${INPUT_USER}@${INPUT_HOST}" "docker info" > /dev/null
