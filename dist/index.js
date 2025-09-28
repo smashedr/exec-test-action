@@ -27579,8 +27579,6 @@ const exec = __nccwpck_require__(5236)
 
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
-            core.info('🏁 Post - Test Exec Action')
-
             if (core.getState('SSH_CLEANUP')) {
                 console.log('▶️ Running step: src/cleanup.sh')
                 const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
