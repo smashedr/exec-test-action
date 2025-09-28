@@ -31864,10 +31864,10 @@ const github = __nccwpck_require__(3228)
 
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
-            console.log('▶️ Running step: src/cleanup.sh')
             const sshCleanup = core.getState('SSH_CLEANUP')
             console.log('sshCleanup:', sshCleanup)
             if (sshCleanup) {
+                console.log('▶️ Running step: src/cleanup.sh')
                 const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
                 console.log('cleanup.exitCode:', cleanup.exitCode)
             }
