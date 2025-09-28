@@ -27570,12 +27570,20 @@ const exec = __nccwpck_require__(5236)
                 const ssh = await exec.getExecOutput('bash src/ssh.sh')
                 console.log('ssh.exitCode:', ssh.exitCode)
             } else {
-                core.info('No pass or ssh_key. Skipping Setup SSH...')
+                core.info('No pass or ssh_key provided. Skipping Setup SSH...')
             }
 
             console.log('▶️ Running step: src/context.sh')
             const context = await exec.getExecOutput('bash src/context.sh')
             console.log('context.exitCode:', context.exitCode)
+
+            if (core.getInput('registry_user') && core.getInput('registry_pass')) {
+                console.log('▶️ Running step: src/login.sh')
+                const ssh = await exec.getExecOutput('bash src/login.sh')
+                console.log('ssh.exitCode:', ssh.exitCode)
+            } else {
+                core.info('No registry_user/registry_pass. Skipping Docker Login...')
+            }
 
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
