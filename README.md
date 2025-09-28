@@ -49,7 +49,7 @@ steps:
       docker ps
 ```
 
-**Make sure to review the [Inputs](#inputs).**
+**Make sure to review the [Inputs](#Inputs).**
 
 _Stack Deploy: If you only need to deploy a swarm or compose stack use: [cssnr/stack-deploy-action](https://github.com/cssnr/stack-deploy-action)_
 
@@ -57,10 +57,10 @@ _Portainer Users: You can deploy directly to Portainer with: [cssnr/portainer-st
 
 ## Features
 
-- Configure SSH using keyfile or password, [src/ssh.sh](src/ssh.sh)
-- Creates and uses a remote docker context, [src/context.sh](src/context.sh)
-- Option to run Docker login for any registry, [src/login.sh](src/login.sh)
-- Cleans up the authorized_keys file if using password, [src/cleanup.sh](src/cleanup.sh)
+- Configure SSH using keyfile or password: [src/ssh.sh](src/ssh.sh)
+- Creates and uses a remote docker context: [src/context.sh](src/context.sh)
+- Option to run Docker login for any registry: [src/login.sh](src/login.sh)
+- Clean up the authorized_keys file for password: [src/cleanup.sh](src/cleanup.sh)
 
 Don't see your feature here? Please help by submitting a [Feature Request](https://github.com/cssnr/docker-context-action/discussions/categories/feature-requests).
 
@@ -93,23 +93,30 @@ With all inputs (not all required).
     registry_host: 'ghcr.io'
 ```
 
+**Make sure to check out the [Examples](#Examples).**
+
 #### host
 
-The hostname or IP address of the remote docker server.  
+The hostname or IP address of the remote docker server.
+
 If your hostname is behind a proxy like Cloudflare you will need to use the IP address.
 
 #### pass/ssh_key
 
-Required to set up the SSH the connection. Provide a `pass` or `ssh_key` but not both.  
+Required to set up the SSH the connection. Provide a `pass` or `ssh_key` but not both.
+
 If this was done in a previous step, omit these values to skip this step.
 
 #### registry_user/registry_pass
 
-Only set these to run `docker login`. This can also be run manually in another step.
+Only set these to run `docker login`.
+
+This can also be run manually in another step.
 
 #### registry_host
 
-To run `docker login` on another registry. Requires both `registry_user/registry_pass`.  
+To run `docker login` on another registry. Requires both `registry_user/registry_pass`.
+
 Example: `ghcr.io`.
 
 ## Examples
@@ -126,7 +133,7 @@ steps:
       pass: ${{ secrets.DOCKER_PASS }}
 
   - name: 'Stack Deploy'
-    runs: docker stack deploy -c docker-compose.yaml stack-name
+    runs: docker stack deploy -c docker-compose.yaml --detach=false stack-name
 ```
 
 ## Tags
