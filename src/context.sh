@@ -17,4 +17,4 @@ docker context use remote
 docker context ls
 echo "::endgroup::"
 
-echo -e "🐳 \u001b[32;1m Setup Context"
+echo -e "🐳 \u001b[32;1m Setup Context Complete"
