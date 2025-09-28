@@ -24,6 +24,27 @@ jobs:
         run: |
           cat "${GITHUB_EVENT_PATH}"
 
+      - name: "Setup Node 24"
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+
+      - name: "Install"
+        id: install
+        run: |
+          npm ci
+
+      - name: "ESLint"
+        id: eslint
+        if: ${{ !cancelled() }}
+        run: |
+          npm run lint:report
+
+      - name: "Prettier"
+        if: ${{ !cancelled() }}
+        run: |
+          npm run prettier:check
+
       - name: "ShellCheck"
         if: ${{ !cancelled() }}
         uses: ludeeus/action-shellcheck@master
@@ -31,20 +52,6 @@ jobs:
           SHELLCHECK_OPTS: -x
         with:
           scandir: src
-
-      - name: "Prettier"
-        if: ${{ !cancelled() }}
-        run: |
-          echo "::group::Install"
-          npm install prettier
-          echo "::endgroup::"
-          npx prettier --check .
-
-      - name: "Hadolint"
-        if: ${{ !cancelled() }}
-        uses: hadolint/hadolint-action@v3.1.0
-        with:
-          dockerfile: Dockerfile
 
       - name: "Yamllint"
         if: ${{ !cancelled() }}

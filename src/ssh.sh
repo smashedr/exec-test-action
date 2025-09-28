@@ -5,6 +5,8 @@ set -e
 
 echo "Setup SSH"
 
+#echo "STATE_SSH_CLEANUP=true" >> "${GITHUB_ENV}"
+
 SSH_DIR="${HOME}/.ssh"
 
 echo "::group::Environment Details"
@@ -15,10 +17,9 @@ echo "SSH Directory: ${SSH_DIR}"
 echo "Current Directory: $(pwd)"
 echo "::endgroup::"
 
+echo "::group::Running: ssh-keyscan"
 mkdir -p "${SSH_DIR}" ~/.ssh
 chmod 0700 "${SSH_DIR}" ~/.ssh
-
-echo "::group::Running: ssh-keyscan"
 ssh-keyscan -p "${INPUT_PORT}" -H "${INPUT_HOST}" >> "${SSH_DIR}/known_hosts"
 echo "::endgroup::"
 
@@ -42,5 +43,3 @@ fi
 echo "::endgroup::"
 
 echo -e "📟 \u001b[32;1m Setup SSH Complete"
-
-#echo "STATE_SSH_CLEANUP=true" >> "${GITHUB_ENV}"

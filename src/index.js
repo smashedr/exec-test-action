@@ -21,6 +21,7 @@ const exec = require('@actions/exec')
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
             core.info('🏁 Post - Test Exec Action')
+
             if (core.getState('SSH_CLEANUP')) {
                 console.log('▶️ Running step: src/cleanup.sh')
                 const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
@@ -33,35 +34,3 @@ const exec = require('@actions/exec')
         core.setFailed(e.message)
     }
 })()
-
-/**
- * Check Command Output
- * @param {String} commandLine
- * @param {String[]} [args]
- * @param {Boolean} [error]
- * @return {Promise<String|String[]>}
- */
-async function checkOutput(commandLine, args = [], error = false) {
-    // options = { ...{ ignoreReturnCode: true }, ...options }
-    // console.log('options:', options)
-    const options = { ignoreReturnCode: true }
-    let myOutput = ''
-    let myError = ''
-    // noinspection JSUnusedGlobalSymbols
-    options.listeners = {
-        stdout: (data) => {
-            myOutput += data.toString()
-        },
-        stderr: (data) => {
-            myError += data.toString()
-        },
-    }
-    await exec.exec(commandLine, args, options)
-    // console.log('myError:', myError)
-    return [myOutput.trim(), myError.trim()]
-    // if (error) {
-    //     return [myOutput.trim(), myError.trim()]
-    // } else {
-    //     return myOutput.trim()
-    // }
-}
