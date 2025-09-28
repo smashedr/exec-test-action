@@ -1,21 +1,13 @@
 const core = require('@actions/core')
 const exec = require('@actions/exec')
-const github = require('@actions/github')
 
 ;(async () => {
     try {
         const stage = core.getState('STAGE') || 'main'
-        core.info(`🏳️ Starting Test Exec Action - Stage: ${stage}`)
-
-        // // Debug
-        // core.startGroup('Debug: github.context')
-        // console.log(github.context)
-        // core.endGroup() // Debug github.context
-        // core.startGroup('Debug: process.env')
-        // console.log(process.env)
-        // core.endGroup() // Debug process.env
 
         if (stage === 'main') {
+            core.info('🏳️ Starting - Test Exec Action')
+
             if (core.getInput('pass') || core.getInput('ssh_key')) {
                 console.log('▶️ Running step: src/ssh.sh')
                 const ssh = await exec.getExecOutput('bash src/ssh.sh')
@@ -28,9 +20,8 @@ const github = require('@actions/github')
 
             core.saveState('STAGE', 'cleanup')
         } else if (stage === 'cleanup') {
-            const sshCleanup = core.getState('SSH_CLEANUP')
-            console.log('sshCleanup:', sshCleanup)
-            if (sshCleanup) {
+            core.info('🏁 Post - Test Exec Action')
+            if (core.getState('SSH_CLEANUP')) {
                 console.log('▶️ Running step: src/cleanup.sh')
                 const cleanup = await exec.getExecOutput('bash src/cleanup.sh')
                 console.log('cleanup.exitCode:', cleanup.exitCode)
