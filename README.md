@@ -51,8 +51,7 @@ steps:
 
 **Make sure to review the [Inputs](#Inputs).**
 
-_Stack Deploy: If you only need to deploy a swarm or compose stack use: [cssnr/stack-deploy-action](https://github.com/cssnr/stack-deploy-action)_
-
+_Stack Deploy: If you only need to deploy a swarm or compose stack use: [cssnr/stack-deploy-action](https://github.com/cssnr/stack-deploy-action)_  
 _Portainer Users: You can deploy directly to Portainer with: [cssnr/portainer-stack-deploy-action](https://github.com/cssnr/portainer-stack-deploy-action)_
 
 ## Features
@@ -94,6 +93,8 @@ With all inputs (not all required).
 ```
 
 **Make sure to check out the [Examples](#Examples).**
+
+---
 
 #### host
 
