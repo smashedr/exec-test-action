@@ -49,6 +49,8 @@ steps:
 
 **Make sure to review the [Inputs](#inputs).**
 
+_Stack Deploy Action: If you only need to deploy a stack use: [cssnr/portainer-stack-deploy-action](https://github.com/cssnr/portainer-stack-deploy-action)_
+
 _Portainer Users: You can deploy directly to Portainer with: [cssnr/portainer-stack-deploy-action](https://github.com/cssnr/portainer-stack-deploy-action)_
 
 ## Features
@@ -62,16 +64,18 @@ Don't see your feature here? Please help by submitting a [Feature Request](https
 
 ## Inputs
 
-| Input&nbsp;Name                              |                 Required                 | Default&nbsp;Value | Description&nbsp;of&nbsp;Input |
-| :------------------------------------------- | :--------------------------------------: | :----------------- | :----------------------------- |
-| [host](#host)                                |                 **Yes**                  | -                  | SSH Hostname or IP             |
-| `user`                                       |                 **Yes**                  | -                  | SSH Username                   |
-| `port`                                       |                    -                     | `22`               | SSH Port                       |
-| [pass](#passssh_key)                         |         [for ssh](#passssh_key)          | -                  | SSH Password                   |
-| [ssh_key](#passssh_key)                      |         [for ssh](#passssh_key)          | -                  | SSH Key File                   |
-| [registry_user](#registry_userregistry_pass) | [see below](#registry_userregistry_pass) | -                  | Registry Username              |
-| [registry_pass](#registry_userregistry_pass) | [see below](#registry_userregistry_pass) | -                  | Registry Password              |
-| [registry_host](#registry_host)              |                    -                     | `docker.io`        | Registry Host                  |
+| Input&nbsp;Name                              |                Required                 | Default&nbsp;Value | Description&nbsp;of&nbsp;Input |
+| :------------------------------------------- | :-------------------------------------: | :----------------: | :----------------------------- |
+| [host](#host)                                |                 **Yes**                 |         -          | SSH Hostname or IP             |
+| `user`                                       |                 **Yes**                 |         -          | SSH Username                   |
+| `port`                                       |                    -                    |        `22`        | SSH Port                       |
+| [pass](#passssh_key)                         |         [for ssh](#passssh_key)         |         -          | SSH Password                   |
+| [ssh_key](#passssh_key)                      |         [for ssh](#passssh_key)         |         -          | SSH Key File                   |
+| [registry_user](#registry_userregistry_pass) | [optional](#registry_userregistry_pass) |         -          | Registry Username              |
+| [registry_pass](#registry_userregistry_pass) | [optional](#registry_userregistry_pass) |         -          | Registry Password              |
+| [registry_host](#registry_host)              |                    -                    |    `docker.io`     | Registry Host                  |
+
+With all inputs (not all required).
 
 ```yaml
 - name: 'Docker Context'
@@ -82,6 +86,9 @@ Don't see your feature here? Please help by submitting a [Feature Request](https
     port: 22 # 22 is default, you can remove or change this
     pass: ${{ secrets.DOCKER_PASS }} # not needed with ssh_key
     ssh_key: ${{ secrets.DOCKER_SSH_KEY }} # not needed with pass
+    registry_user: ${{ vars.GHCR_USER }}
+    registry_pass: ${{ secrets.GHCR_PASS }}
+    registry_host: 'ghcr.io'
 ```
 
 #### host
@@ -96,29 +103,13 @@ If this was done in a previous step, omit these values to skip this step.
 
 #### registry_user/registry_pass
 
-Only set these to run `docker login`. This can also be run manually in a subsequent step.
+Only set these to run `docker login`. This can also be run manually in another step.
 
 #### registry_host
 
 To run `docker login` on another registry. Example: `ghcr.io`.
 
 ## Examples
-
-With all inputs (not all required).
-
-```yaml
-- name: 'Docker Context'
-  uses: cssnr/docker-ssh-context-action@v1
-  with:
-    host: ${{ secrets.DOCKER_HOST }}
-    user: ${{ secrets.DOCKER_USER }}
-    port: 22 # 22 is default, you can remove or change this
-    pass: ${{ secrets.DOCKER_PASS }} # not needed with ssh_key
-    ssh_key: ${{ secrets.DOCKER_SSH_KEY }} # not needed with pass
-    registry_host: 'ghcr.io'
-    registry_user: ${{ vars.GHCR_USER }}
-    registry_pass: ${{ secrets.GHCR_PASS }}
-```
 
 Example workflow.
 
@@ -129,7 +120,7 @@ steps:
     with:
       host: ${{ secrets.DOCKER_HOST }}
       user: ${{ secrets.DOCKER_USER }}
-      ssh_key: ${{ secrets.DOCKER_SSH_KEY }}
+      pass: ${{ secrets.DOCKER_PASS }}
 
   - name: 'Stack Deploy'
     runs: docker stack deploy -c docker-compose.yaml stack-name
