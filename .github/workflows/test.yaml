@@ -57,4 +57,5 @@ jobs:
         continue-on-error: true
         run: |
           docker context ls
+          docker ps -f name=test_stack-deploy
           #docker context inspect

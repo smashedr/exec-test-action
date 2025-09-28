@@ -5,7 +5,7 @@ set -e
 
 echo "Cleanup SSH"
 
-echo "STATE_SSH_CLEANUP: ${STATE_SSH_CLEANUP}"
+#echo "STATE_SSH_CLEANUP: ${STATE_SSH_CLEANUP}"
 #if [[ -n "${STATE_SSH_CLEANUP}" ]];then
 
 echo "Cleaning Up authorized_keys File"
